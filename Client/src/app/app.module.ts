@@ -20,6 +20,13 @@ import { AppRoutingModule } from './/app-routing.module';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+//import { InMemoryDataService } from './in-memory-data.service';
+
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { RedirectsService } from './redirects.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+
 
 
 @NgModule({
@@ -40,6 +47,13 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     ScPageModule,
     ScMenuModule, 
     ScTableModule,   
+HttpModule,
+    HttpClientModule,
+
+    //HttpClientInMemoryWebApiModule.forRoot(
+    //  InMemoryDataService, { dataEncapsulation: false }
+    //),
+
     NgScModule.forRoot({
 
       contextToken: CONTEXT, // Provide Sitecore context for SPEAK 3 Components (optional)
@@ -51,7 +65,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 
     })
   ],
-  providers: [],
+  providers: [RedirectsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

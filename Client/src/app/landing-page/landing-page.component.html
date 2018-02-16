@@ -27,30 +27,20 @@
   </div>
   <article scPageContent>
     <table scTable>
-      <thead scSort (sortChange)="onSortChange($event)" sortBehavior="multi">
+      <thead>
         <tr>
-          <th scSortHeader="id">#</th>
-          <th scSortHeader="name">First Name</th>
-          <th scSortHeader="lastname">Last Name</th>
-          <th>Username</th>
+          <th>#</th>
+          <th>Original URL</th>
+          <th>Destination URL</th>
+          <th></th>
         </tr>
       </thead>
-      <tbody [(scSelect)]="selectedRowId">
-        <tr *ngFor="let data of sortedData; trackBy: trackByItemId">
-          <td>{{ data.id }}</td>
-          <td>{{ data.name }}</td>
-          <td>{{ data.lastname }}</td>
-          <td>{{ data.username }}</td>
-        </tr>
-        <tr scSelectRow="1">
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-        </tr>
-        <tr scSelectRow="2">
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
+      <tbody>
+        <tr *ngFor="let redirect of redirects">
+          <td>{{ redirect.id }}</td>
+          <td>{{ redirect.originalUrl }}</td>
+          <td>{{ redirect.desinationUrl }}</td>
+          <td></td>
         </tr>
       </tbody>
     </table>
