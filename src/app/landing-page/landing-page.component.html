@@ -1,0 +1,58 @@
+<sc-page [showNav]="isNavigationShown">
+  <div scPageHeader>
+    <sc-global-header [appName]="'Redirect Manager' | translate" [(show)]="isNavigationShown">
+      <a href="#" scGlobalLogo></a>
+      <!-- AccountInformation gets accountName and accountImageUrl automatically from Sitecore context which is configured in AppModule -->
+      <sc-account-information (logout)="logoutService.logout()"></sc-account-information>
+    </sc-global-header>
+  </div>
+  <aside scPageNav>
+    <nav>
+      <!--<a routerLink="/taskpage" class="navlink">{{ 'TASK_PAGE' | translate }}</a>-->
+    </nav>
+
+    <sc-menu>
+      <sc-menu-category icon="cake_slice" text="Lorem ipsum dolor" [open]="true">
+        <sc-menu-item>
+          <a scMenuItemLink routerLink="lorem">Not active</a>
+        </sc-menu-item>
+        <sc-menu-item>
+          <a scMenuItemLink routerLink="ipsum" [active]="true">Active</a>
+        </sc-menu-item>
+      </sc-menu-category>
+    </sc-menu>
+  </aside>
+  <div scPageAppHeader>
+    <sc-application-header [text]="'DASHBOARD_PAGE' | translate"></sc-application-header>
+  </div>
+  <article scPageContent>
+    <table scTable>
+      <thead scSort (sortChange)="onSortChange($event)" sortBehavior="multi">
+        <tr>
+          <th scSortHeader="id">#</th>
+          <th scSortHeader="name">First Name</th>
+          <th scSortHeader="lastname">Last Name</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody [(scSelect)]="selectedRowId">
+        <tr *ngFor="let data of sortedData; trackBy: trackByItemId">
+          <td>{{ data.id }}</td>
+          <td>{{ data.name }}</td>
+          <td>{{ data.lastname }}</td>
+          <td>{{ data.username }}</td>
+        </tr>
+        <tr scSelectRow="1">
+          <td>1</td>
+          <td>Mark</td>
+          <td>Otto</td>
+        </tr>
+        <tr scSelectRow="2">
+          <td>2</td>
+          <td>Jacob</td>
+          <td>Thornton</td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</sc-page>
