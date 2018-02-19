@@ -27,23 +27,9 @@
     <sc-application-header [text]="'DASHBOARD_PAGE' | translate"></sc-application-header>
   </div>
   <article scPageContent>
-    <table scTable>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Original URL</th>
-          <th>Destination URL</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let redirect of redirects">
-          <td>{{ redirect.id }}</td>
-          <td>{{ redirect.originalUrl }}</td>
-          <td>{{ redirect.desinationUrl }}</td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-  </article>
-</sc-page>
+      <input type="file" #fileInput value="Upload"   />  
+      <a scButton="primary" (click)="uploadFile()">Upload Redirects</a>
+
+    </article>
+  </sc-page>
+  

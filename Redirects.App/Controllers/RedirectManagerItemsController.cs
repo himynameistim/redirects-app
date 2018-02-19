@@ -8,6 +8,7 @@ using Sitecore.Web.Http.Filters;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Redirects.App.Controllers
@@ -63,6 +64,23 @@ namespace Redirects.App.Controllers
             }
 
             return Ok(redirects);
+        }
+
+        [HttpPost]
+        public HttpResponseMessage UploadFile()
+        {
+            HttpResponseMessage response = new HttpResponseMessage();
+            var httpRequest = HttpContext.Current.Request;
+            if (httpRequest.Files.Count > 0)
+            {
+                foreach (string file in httpRequest.Files)
+                {
+                    var postedFile = httpRequest.Files[file];
+                    //var filePath = HttpContext.Current.Server.MapPath("~/UploadFile/" + postedFile.FileName);
+                    //postedFile.SaveAs(filePath);
+                }
+            }
+            return response;
         }
 
         //[HttpPost]

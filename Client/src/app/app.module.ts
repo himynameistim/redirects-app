@@ -26,13 +26,15 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { RedirectsService } from './redirects.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { UploadRedirectsComponent } from './upload-redirects/upload-redirects.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    UploadRedirectsComponent
   ],
   imports: [
     BrowserModule,

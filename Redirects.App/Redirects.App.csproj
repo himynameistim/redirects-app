@@ -293,7 +293,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\SampleItemsController.cs" />
+    <Compile Include="Controllers\RedirectManagerItemsController.cs" />
     <Compile Include="Models\RedirectItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
